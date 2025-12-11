@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #333;
+}
+
+.container {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+h1 {
+  color: #667eea;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+}
+
+#choiceScreen,
+#gameScreen {
+  display: none;
+}
+
+#choiceScreen.active,
+#gameScreen.active {
+  display: block;
+}
+
+.choice-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.choice-btn {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 20px 40px;
+  font-size: 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: bold;
+}
+
+.choice-btn:hover {
+  background: #764ba2;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#status {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  min-height: 40px;
+  color: #667eea;
+  font-weight: bold;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  grid-gap: 10px;
+  margin: 30px auto;
+  justify-content: center;
+}
+
+.cell {
+  width: 120px;
+  height: 120px;
+  background: #f0f0f0;
+  border: 3px solid #667eea;
+  font-size: 48px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+.cell:hover:not(.filled) {
+  background: #e0e0ff;
+  transform: scale(1.05);
+}
+
+.cell.filled {
+  cursor: not-allowed;
+}
+
+.cell.x {
+  color: #e74c3c;
+}
+
+.cell.o {
+  color: #3498db;
+}
+
+.reset-btn {
+  background: #764ba2;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s;
+}
+
+.reset-btn:hover {
+  background: #667eea;
+  transform: translateY(-2px);
+}
+
+.instructions {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 18px;
+}

@@ -1,0 +1,9 @@
+.git
+.gitignore
+README.md
+x0.rb
+x0_gui.rb
+x0_web.rb
+*.log
+tmp/
+.DS_Store

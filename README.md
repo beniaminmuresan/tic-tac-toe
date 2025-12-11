@@ -1,39 +1,121 @@
 # Tic-Tac-Toe
 
-A command-line Tic-Tac-Toe game written in Ruby where you play against the computer.
+A Tic-Tac-Toe game implemented in Ruby with multiple versions.
 
-## Features
+## Versions
 
+### 1. Command Line Version (`x0.rb`)
+Traditional terminal-based game where you play against the computer.
+
+**Run:**
+```bash
+ruby x0.rb
+```
+
+**Features:**
 - Play as X or 0 (zero)
 - Computer opponent with random move selection
 - Win detection for rows, columns, and diagonals
 - Draw detection when the board is full
 - Interactive command-line interface
 
-## How to Play
+**How to Play:**
+1. Choose your symbol (X or 0)
+2. Enter your move using the position format shown on the board (e.g., `00`, `11`, `22`)
+3. The computer will automatically make its move after yours
+4. First to get 3 in a row wins!
 
-1. Run the game:
-   ```bash
-   ruby x0.rb
-   ```
+### 2. Web-based GUI Version (`x0_web.rb`)
+Modern web interface using Sinatra framework.
 
-2. Choose your symbol (X or 0)
+**Install dependencies:**
+```bash
+gem install sinatra
+```
 
-3. Enter your move using the position format shown on the board:
-   - Positions are labeled as `00`, `01`, `02` (top row)
-   - `10`, `11`, `12` (middle row)
-   - `20`, `21`, `22` (bottom row)
+**Run:**
+```bash
+ruby x0_web.rb
+```
 
-4. The computer will automatically make its move after yours
+Then open your browser to: `http://localhost:4567`
 
-5. The game ends when:
-   - You win (three in a row)
-   - The computer wins (three in a row)
-   - The board is full (draw)
+**Features:**
+- Beautiful gradient UI with animations
+- Click-to-play interface
+- Real-time game updates
+- Computer opponent
+- Win/draw detection
+- Responsive design
+- Session-based game state
+
+**How to Play:**
+1. Choose your symbol (X or O)
+2. Click on any empty cell to make your move
+3. The computer will automatically make its move
+4. First to get 3 in a row wins!
+5. Click "New Game" to start over
+
+## Project Structure
+
+```
+tic-tac-toe/
+├── app/
+│   └── app.rb              # Main Sinatra application
+├── lib/
+│   └── game.rb             # Game logic
+├── public/
+│   ├── css/
+│   │   └── style.css       # Styles
+│   └── js/
+│       └── game.js         # Client-side JavaScript
+├── views/
+│   └── index.erb           # HTML template
+├── config.ru               # Rack configuration
+├── Dockerfile              # Docker image definition
+├── docker-compose.yml      # Docker Compose configuration
+└── Gemfile                 # Ruby dependencies
+```
 
 ## Requirements
 
-- Ruby (any recent version)
+- Ruby 2.6+
+- Sinatra gem (for web version only)
+- Docker & Docker Compose (for containerized version)
+
+## Docker Deployment
+
+The easiest way to run the web version is using Docker:
+
+### Using Docker Compose (Recommended)
+
+```bash
+docker-compose up
+```
+
+Then open your browser to: `http://localhost:4567`
+
+### Using Docker directly
+
+**Build the image:**
+```bash
+docker build -t tic-tac-toe .
+```
+
+**Run the container:**
+```bash
+docker run -p 4567:4567 tic-tac-toe
+```
+
+Then open your browser to: `http://localhost:4567`
+
+### Stop the container
+
+```bash
+docker-compose down
+```
+
+or press `Ctrl+C` if running in foreground.
 
 ## Example
 

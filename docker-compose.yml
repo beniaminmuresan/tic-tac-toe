@@ -1,0 +1,11 @@
+services:
+  tic-tac-toe:
+    build: .
+    ports:
+      - "4567:4567"
+    volumes:
+      - .:/app
+    environment:
+      - RACK_ENV=development
+    stdin_open: true
+    tty: true
