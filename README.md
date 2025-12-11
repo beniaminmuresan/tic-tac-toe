@@ -25,17 +25,12 @@ ruby x0.rb
 3. The computer will automatically make its move after yours
 4. First to get 3 in a row wins!
 
-### 2. Web-based GUI Version (`x0_web.rb`)
-Modern web interface using Sinatra framework.
+### 2. Web-based GUI Version (Dockerized)
+Modern web interface using Sinatra framework, packaged with Docker for easy deployment.
 
-**Install dependencies:**
+**Run with Docker Compose:**
 ```bash
-gem install sinatra
-```
-
-**Run:**
-```bash
-ruby x0_web.rb
+docker-compose up
 ```
 
 Then open your browser to: `http://localhost:4567`
@@ -48,6 +43,7 @@ Then open your browser to: `http://localhost:4567`
 - Win/draw detection
 - Responsive design
 - Session-based game state
+- Fully containerized with Docker
 
 **How to Play:**
 1. Choose your symbol (X or O)
@@ -79,43 +75,32 @@ tic-tac-toe/
 
 ## Requirements
 
+### Command Line Version
 - Ruby 2.6+
-- Sinatra gem (for web version only)
-- Docker & Docker Compose (for containerized version)
 
-## Docker Deployment
+### Web Version
+- Docker & Docker Compose
 
-The easiest way to run the web version is using Docker:
+## Running the Web Version
 
-### Using Docker Compose (Recommended)
-
+### Start the application
 ```bash
 docker-compose up
 ```
 
 Then open your browser to: `http://localhost:4567`
 
-### Using Docker directly
-
-**Build the image:**
-```bash
-docker build -t tic-tac-toe .
-```
-
-**Run the container:**
-```bash
-docker run -p 4567:4567 tic-tac-toe
-```
-
-Then open your browser to: `http://localhost:4567`
-
-### Stop the container
-
+### Stop the application
 ```bash
 docker-compose down
 ```
 
 or press `Ctrl+C` if running in foreground.
+
+### Rebuild after changes
+```bash
+docker-compose up --build
+```
 
 ## Example
 
